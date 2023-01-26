@@ -3,59 +3,34 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  numb1:number = 0
-  numb2:number=0
+  //Primero creamos una variable datos
+  operadores;
 
+  valor1 = 0;
+  valor2 = 0;
 
-  options=[
-    {
-      name:'+',
-      value: '+',
-      selected:true
-    },
-    {
-      name:'-',
-      value: '-'
-    },
-    {
-      name:'x',
-      value: 'x'
-    },
-    {
-      name:'/',
-      value: '/'
-    }
-  ]
+  //aqui el resultado
+  resultado:any;
 
-  selectedOption=this.options[0].value
+  //luego creamos una variable para guardar la opcion selecionada
+  //contra esta variable vamos con el ngModel
+  selected: string = '0'; // Iniciamos
 
-  operationResult:number=0
+  //cremoa la variable donde lo guardare
+  miOpcion: string = '';
 
-  calcular(selectedOption:string){
-    this.selectedOption= selectedOption
-
-    switch (selectedOption) {
-      case '+':
-          this.operationResult = Number(this.numb1) + Number(this.numb2);
-          break;
-      case '-':
-          this.operationResult = Number(this.numb1) - Number(this.numb2);
-          break;
-      case 'x':
-          this.operationResult = Number(this.numb1) * Number(this.numb2);
-          break;
-      case '/':
-          this.operationResult = Number(this.numb1) / Number(this.numb2);
-          break;
+  constructor() {
+    this.operadores = ['+', '-', '*', '/'];
   }
 
-
-  console.log(selectedOption)
-  console.log(this.operationResult)
-
+  capturar() {
+    this.miOpcion = this.selected;
   }
 
+  calcular() {
+    return (this.resultado = eval(Number(this.valor1) + this.miOpcion + Number(this.valor2)));
+  }
 }
