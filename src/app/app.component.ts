@@ -30,7 +30,23 @@ export class AppComponent {
     this.miOpcion = this.selected;
   }
 
-  calcular() {
-    return (this.resultado = eval(Number(this.valor1) + this.miOpcion + Number(this.valor2)));
+  // calcular() {
+  //   return (this.resultado = eval(Number(this.valor1) + this.miOpcion + Number(this.valor2)));
+  // }
+
+  sumar(num1:number,num2:number):number{
+    return this.resultado=num1+num2
+  }
+  restar(num1:number,num2:number):number{
+    return this.resultado=num1-num2
+  }
+  multiplicar(num1:number,num2:number):number{
+    return this.resultado=num1*num2
+  }
+  dividir(num1:number,num2:number):number{
+    return this.resultado=num1/num2
+  }
+  calcular(num1:number,num2:number):number{
+    return this.resultado=num1+num2
   }
 }

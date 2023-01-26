@@ -20,7 +20,11 @@
 
     <p [hidden]="selected == '0'">Vas a {{ miOpcion }}</p>
 
-    <button (click)="calcular()">calcular</button>
+    <button (click)="sumar(valor1, valor2)">sumar</button>
+    <button (click)="restar(valor1, valor2)">restar</button>
+    <button (click)="multiplicar(valor1, valor2)">multiplicar</button>
+    <button (click)="dividir(valor1, valor2)">dividir</button>
+    <button (click)="calcular(valor1, valor2)">calcular</button>
 
     {{ resultado }}
   </div>
